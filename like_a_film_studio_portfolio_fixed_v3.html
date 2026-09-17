@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quan Tran — Like A Film Studio | Créateur UGC Trilingue</title>
+<meta name="description" content="Quan Tran — créateur UGC trilingue FR·EN·VI. Vidéos authentiques, brutes, faites pour durer. Collaborations marques.">
+<meta property="og:title" content="Like A Film Studio — Quan Tran">
+<meta property="og:description" content="Créateur UGC trilingue.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   VARIABLES & RESET
+============================================================ */
+:root {
+  --void: #0B0612;
+  --void-2: #140A24;
+  --chrome: #F3EFFF;
+  --mute: #A99FC9;
+  --hot: #FF2E97;
+  --cyan: #19E3FF;
+  --violet: #9A5BFF;
+  --lime: #C6FF4A;
+  --sun: #FFE03D;
+  --holo: linear-gradient(115deg, #FF2E97, #9A5BFF, #19E3FF, #C6FF4A);
+  --glass: rgba(20,10,36,0.72);
+  --r: 14px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--void);
+  color: var(--chrome);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ============================================================
+   GRAIN FILM + AURORES
+============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+.aurora {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.aurora-1 { width: 600px; height: 400px; background: rgba(154,91,255,.18); top: -100px; left: -150px; animation-duration: 20s; }
+.aurora-2 { width: 500px; height: 350px; background: rgba(255,46,151,.14); top: 30%; right: -100px; animation-duration: 25s; animation-delay: -8s; }
+.aurora-3 { width: 450px; height: 300px; background: rgba(25,227,255,.12); bottom: 10%; left: 20%; animation-duration: 22s; animation-delay: -4s; }
+
+@keyframes drift {
+  from { transform: translate(0,0) scale(1); }
+  to { transform: translate(40px,60px) scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora { animation: none; }
+  .holo-text { animation: none; background-position: 0 0 !important; }
+  .star { animation: none; opacity: 0.5; }
+  .marquee-inner { animation: none; }
+  .border-holo { animation: none; }
+}
+
+/* ============================================================
+   HOLOGRAPHIC TEXT
+============================================================ */
+.holo-text {
+  background: var(--holo);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: holoShift 6s linear infinite;
+}
+@keyframes holoShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================================
+   ÉTOILES ✦
+============================================================ */
+.star {
+  display: inline-block;
+  animation: twinkle 3s ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%,100% { opacity:1; transform: scale(1); }
+  50% { opacity:.4; transform: scale(0.8); }
+}
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+.star-dot {
+  position: absolute;
+  color: var(--chrome);
+  font-size: 10px;
+  opacity: 0.3;
+  animation: twinkle var(--dur, 3s) var(--delay, 0s) ease-in-out infinite;
+}
+
+/* ============================================================
+   NAV
+============================================================ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: var(--glass);
+  border-bottom: 1px solid rgba(154,91,255,.25);
+  padding: 0 clamp(16px, 5vw, 60px);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.wordmark {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(11px, 1.8vw, 15px);
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2vw, 28px);
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--chrome); }
+.lang-switch {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.lang-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .08em;
+  background: transparent;
+  border: 1px solid rgba(169,159,201,.3);
+  color: var(--mute);
+  padding: 4px 8px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.lang-btn.active, .lang-btn:hover {
+  border-color: var(--violet);
+  color: var(--chrome);
+  background: rgba(154,91,255,.15);
+}
+.cta-nav {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 9px 18px;
+  border-radius: 100px;
+  border: 1.5px solid transparent;
+  background: var(--holo);
+  background-size: 200% 200%;
+  color: #0B0612;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .2s, transform .15s;
+  animation: holoShift 4s linear infinite;
+}
+.cta-nav:hover { opacity: .88; transform: scale(1.03); }
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  background: none;
+  border: none;
+}
+.burger span { display: block; width: 22px; height: 2px; background: var(--chrome); border-radius: 2px; }
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 64px;
+  background: var(--void-2);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 22px;
+  color: var(--chrome);
+  text-decoration: none;
+}
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+section { position: relative; z-index: 2; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 60px); }
+
+/* ============================================================
+   HERO
+============================================================ */
+.hero {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 80px clamp(16px, 5vw, 60px);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-kicker {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--lime);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-kicker::before { content: '✦'; animation: twinkle 2s ease-in-out infinite; }
+.hero-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  margin-bottom: 24px;
+}
+.hero-manifeste {
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: var(--mute);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 14px 28px;
+  border-radius: 100px;
+  background: var(--holo);
+  background-size: 200% 200%;
+  animation: holoShift 4s linear infinite;
+  color: #0B0612;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .15s, opacity .2s;
+}
+.btn-primary:hover { transform: scale(1.04); opacity: .9; }
+.btn-secondary {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 13px 28px;
+  border-radius: 100px;
+  background: transparent;
+  color: var(--chrome);
+  border: 1.5px solid rgba(169,159,201,.4);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+.btn-secondary:hover { border-color: var(--violet); background: rgba(154,91,255,.12); }
+
+/* Phone frame */
+.phone-frame {
+  position: relative;
+  width: 260px;
+  aspect-ratio: 9/16;
+  margin: 0 auto;
+  border-radius: 36px;
+  overflow: hidden;
+  background: var(--void-2);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.phone-border {
+  position: absolute;
+  inset: -2px;
+  border-radius: 38px;
+  background: var(--holo);
+  background-size: 200% 200%;
+  animation: holoShift 4s linear infinite;
+  z-index: -1;
+}
+.phone-frame iframe, .phone-frame video, .phone-frame .phone-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+.phone-poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--void-2);
+  flex-direction: column;
+  gap: 12px;
+  position: absolute;
+  inset: 0;
+}
+.play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(154,91,255,.3);
+  border: 2px solid var(--violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: transform .2s, background .2s;
+  backdrop-filter: blur(8px);
+}
+.phone-poster:hover .play-btn { transform: scale(1.1); background: rgba(154,91,255,.5); }
+.phone-stickers {
+  position: absolute;
+  top: 12px;
+  right: -18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sticker {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: 5px 10px;
+  border-radius: 100px;
+  transform: rotate(6deg);
+}
+.sticker-1 { background: var(--hot); color: #fff; transform: rotate(8deg); }
+.sticker-2 { background: var(--lime); color: #0B0612; transform: rotate(-5deg); }
+.sticker-3 { background: var(--cyan); color: #0B0612; transform: rotate(3deg); }
+
+/* ============================================================
+   MARQUEE
+============================================================ */
+.marquee-section {
+  border-top: 1px solid rgba(154,91,255,.2);
+  border-bottom: 1px solid rgba(154,91,255,.2);
+  padding: 20px 0;
+  overflow: hidden;
+  background: var(--void-2);
+}
+.marquee-wrap { position: relative; overflow: hidden; }
+.marquee-wrap::before, .marquee-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+}
+.marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--void-2), transparent); }
+.marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--void-2), transparent); }
+.marquee-inner {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+.marquee-wrap:hover .marquee-inner { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-item {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--mute);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  transition: color .2s;
+}
+.marquee-item::after { content: '✦'; color: var(--violet); font-size: 10px; }
+.marquee-wrap:hover .marquee-item { color: var(--chrome); }
+
+/* ============================================================
+   MANIFESTE
+============================================================ */
+.manifeste-section {
+  padding: 100px clamp(16px, 5vw, 60px);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.manifeste-quote {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 3.5vw, 40px);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+}
+.manifeste-dash {
+  display: block;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--mute);
+  margin-top: 24px;
+  letter-spacing: .08em;
+}
+
+/* ============================================================
+   RÉALISATIONS
+============================================================ */
+.realisations {
+  padding: 80px clamp(16px, 5vw, 60px);
+}
+.section-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--violet);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 3.5vw, 44px);
+  margin-bottom: 40px;
+  letter-spacing: -.03em;
+}
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.filter-tab {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(169,159,201,.3);
+  background: transparent;
+  color: var(--mute);
+  cursor: pointer;
+  transition: all .2s;
+}
+.filter-tab:hover, .filter-tab.active {
+  border-color: var(--violet);
+  color: var(--chrome);
+  background: rgba(154,91,255,.15);
+}
+.filter-tab.active {
+  background: var(--holo);
+  background-size: 200% 200%;
+  animation: holoShift 4s linear infinite;
+  color: #0B0612;
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+.video-card {
+  position: relative;
+  aspect-ratio: 9/16;
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--void-2);
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s;
+}
+.video-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r);
+  padding: 1.5px;
+  background: var(--holo);
+  background-size: 200% 200%;
+  animation: holoShift 4s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.video-card:hover::before { opacity: 1; }
+.video-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 60px rgba(154,91,255,.3); }
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,6,18,.9) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  gap: 4px;
+  transition: background .2s;
+}
+.video-card:hover .video-overlay { background: linear-gradient(to top, rgba(11,6,18,.95) 0%, rgba(11,6,18,.2) 60%); }
+.video-play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0.8);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(154,91,255,.4);
+  border: 2px solid rgba(154,91,255,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity .2s, transform .2s;
+  backdrop-filter: blur(8px);
+}
+.video-card:hover .video-play-icon { opacity: 1; transform: translate(-50%,-50%) scale(1); }
+.video-brand {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+.video-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--chrome);
+  line-height: 1.3;
+}
+.video-cat-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: .06em;
+  padding: 3px 8px;
+  border-radius: 100px;
+  background: rgba(154,91,255,.25);
+  color: var(--mute);
+  align-self: flex-start;
+}
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(11,6,18,.88);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+}
+.modal-overlay.open { display: flex; }
+.modal-inner {
+  width: min(400px, 90vw);
+  aspect-ratio: 9/16;
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  border: 1.5px solid rgba(154,91,255,.5);
+}
+.modal-inner iframe { width: 100%; height: 100%; border: none; }
+.modal-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--chrome);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* ============================================================
+   STATS
+============================================================ */
+.stats-section {
+  padding: 80px clamp(16px, 5vw, 60px);
+  background: var(--void-2);
+  border-top: 1px solid rgba(154,91,255,.2);
+  border-bottom: 1px solid rgba(154,91,255,.2);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(36px, 5vw, 60px);
+  letter-spacing: -.04em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.contact-section {
+  padding: 100px clamp(16px, 5vw, 60px);
+}
+.contact-panel {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--void-2);
+  border-radius: 24px;
+  padding: clamp(40px, 6vw, 80px) clamp(28px, 5vw, 80px);
+  border: 1px solid rgba(154,91,255,.25);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(154,91,255,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(24px, 4vw, 50px);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.contact-sub {
+  color: var(--mute);
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+.contact-pills {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+.pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: 1px solid rgba(169,159,201,.3);
+  color: var(--mute);
+  text-decoration: none;
+  transition: all .2s;
+}
+.pill:hover { border-color: var(--cyan); color: var(--chrome); }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  padding: 28px clamp(16px, 5vw, 60px);
+  border-top: 1px solid rgba(154,91,255,.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--mute);
+}
+footer a { color: var(--mute); text-decoration: none; transition: color .2s; }
+footer a:hover { color: var(--chrome); }
+.footer-links { display: flex; gap: 20px; }
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 48px; padding-bottom: 60px; }
+  .hero-right { order: -1; }
+  .phone-frame { width: 200px; }
+  .phone-stickers { right: -10px; }
+  .nav-links, .cta-nav { display: none; }
+  .burger { display: flex; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .video-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .video-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+
+/* focus visible */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+
+<!-- Aurores de fond -->
+<div class="aurora aurora-1" aria-hidden="true"></div>
+<div class="aurora aurora-2" aria-hidden="true"></div>
+<div class="aurora aurora-3" aria-hidden="true"></div>
+
+<!-- Étoiles -->
+<div class="star-field" aria-hidden="true" id="starField"></div>
+
+<!-- Modal vidéo -->
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Lecteur vidéo">
+  <div style="position:relative; width: min(400px, 90vw); aspect-ratio: 9/16;">
+    <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
+    <div class="modal-inner">
+      <iframe id="modalIframe" src="" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav id="mainNav">
+  <a href="#" class="wordmark"><span class="holo-text">LIKE A FILM <span class="star">✦</span> STUDIO</span></a>
+  <ul class="nav-links" role="list">
+    <li><a href="#realisations" data-i18n="nav.work">Réalisations</a></li>
+    <li><a href="#marques" data-i18n="nav.brands">Marques</a></li>
+    <li><a href="#apropos" data-i18n="nav.about">À propos</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div class="lang-switch" role="group" aria-label="Choix de langue">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('vi')">VI</button>
+  </div>
+  <a href="#contact" class="cta-nav" data-i18n="nav.cta">Lancer un projet</a>
+  <button class="burger" id="burgerBtn" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Navigation mobile">
+  <a href="#realisations" data-i18n="nav.work" onclick="closeMobile()">Réalisations</a>
+  <a href="#marques" data-i18n="nav.brands" onclick="closeMobile()">Marques</a>
+  <a href="#contact" data-i18n="nav.contact" onclick="closeMobile()">Contact</a>
+  <div class="lang-switch" style="margin-top:16px">
+    <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('vi')">VI</button>
+  </div>
+</div>
+
+<!-- ======== HERO ======== -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <p class="hero-kicker" data-i18n="hero.kicker">Créateur UGC trilingue · FR · EN · VI</p>
+    <h1 class="hero-title holo-text" data-i18n="hero.title">BRUT.<br>VRAI.<br>FAIT POUR DURER.</h1>
+    <p class="hero-manifeste" data-i18n="hero.manifeste">« Je crée des vidéos comme on tient un journal — chaque image est un bout de ma vie. »</p>
+    <div class="hero-ctas">
+      <a href="#realisations" class="btn-primary" data-i18n="hero.cta1">Voir les vidéos</a>
+      <a href="#contact" class="btn-secondary" data-i18n="hero.cta2">Me contacter</a>
+    </div>
+  </div>
+  <div class="hero-right" style="display:flex; justify-content:center; align-items:center; position:relative;">
+    <div class="phone-frame" id="heroPhoneFrame">
+      <div class="phone-border"></div>
+      <div class="phone-poster" id="heroPoster" role="button" tabindex="0" aria-label="Lancer la vidéo d'introduction">
+        <div class="play-btn">▶</div>
+        <span style="font-family:'Space Mono',monospace; font-size:10px; color:var(--mute); letter-spacing:.08em">INTRO VIDEO</span>
+      </div>
+    </div>
+    <div class="phone-stickers">
+      <span class="sticker sticker-1">UGC</span>
+      <span class="sticker sticker-2">FR·EN·VI</span>
+      <span class="sticker sticker-3">✦ VIRAL</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======== MARQUEE MARQUES ======== -->
+<div class="marquee-section" id="marques" aria-label="Marques partenaires">
+  <div class="marquee-wrap">
+    <div class="marquee-inner" id="marqueeInner"></div>
+  </div>
+</div>
+
+<!-- ======== MANIFESTE ======== -->
+<section id="apropos">
+  <div class="manifeste-section">
+    <p class="manifeste-quote">
+      <span class="holo-text" data-i18n="manifeste.quote">« Je filme le réel, pas le parfait. Du brut qui crée du lien — et qui convertit. »</span>
+      <span class="manifeste-dash" data-i18n="manifeste.dash">— Quan Tran, Like A Film Studio</span>
+    </p>
+  </div>
+</section>
+
+<!-- ======== RÉALISATIONS ======== -->
+<section class="realisations" id="realisations">
+  <div class="container" style="padding:0 clamp(16px, 5vw, 60px);">
+    <p class="section-eyebrow" data-i18n="work.eyebrow">✦ Réalisations</p>
+    <h2 class="section-title" data-i18n="work.title">Le travail parle.</h2>
+    <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Filtrer par catégorie"></div>
+    <div class="video-grid" id="videoGrid" role="list" aria-label="Grille de vidéos"></div>
+  </div>
+</section>
+
+<!-- ======== STATS ======== -->
+<section class="stats-section">
+  <div class="stats-grid" id="statsGrid">
+    <div>
+      <div class="stat-num holo-text">03</div>
+      <div class="stat-label" data-i18n="stats.lang">Langues</div>
+    </div>
+    <div>
+      <div class="stat-num holo-text" id="statBrands">13+</div>
+      <div class="stat-label" data-i18n="stats.brands">Marques</div>
+    </div>
+    <div>
+      <div class="stat-num holo-text" id="statCats">06</div>
+      <div class="stat-label" data-i18n="stats.cats">Catégories</div>
+    </div>
+    <div>
+      <div class="stat-num holo-text">100%</div>
+      <div class="stat-label" data-i18n="stats.auth">Authentique</div>
+    </div>
+  </div>
+</section>
+
+<!-- ======== CONTACT ======== -->
+<section class="contact-section" id="contact">
+  <div class="contact-panel">
+    <p class="section-eyebrow" style="margin-bottom:16px" data-i18n="contact.eyebrow">✦ Contact</p>
+    <h2 class="contact-title"><span class="holo-text" data-i18n="contact.title">Créons un truc qui sonne vrai.</span></h2>
+    <p class="contact-sub" data-i18n="contact.sub">Marque, agence ou créateur — écrivons ensemble la prochaine histoire.</p>
+    <a href="mailto:tducquan08@gmail.com" class="btn-primary" data-i18n="contact.btn">tducquan08@gmail.com</a>
+    <div class="contact-pills">
+      <a href="https://www.tiktok.com/@likeabirdtran?lang=en" class="pill" target="_blank" rel="noopener">TikTok</a>
+      <a href="https://www.instagram.com/likeafilmtran/?__pwa=1" class="pill" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/tducquan" class="pill" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <span>© 2026 Quan Tran — Like A Film Studio</span>
+  <div class="footer-links">
+    <a href="#" data-i18n="footer.privacy">Confidentialité</a>
+    <a href="#" data-i18n="footer.a11y">Accessibilité</a>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — Tout le contenu du site vient d'ici.
+   Pour modifier :
+     - Ajouter une vidéo → ajouter un objet dans CONFIG.videos
+     - Ajouter une marque → ajouter une chaîne dans CONFIG.brands
+     - Ajouter une catégorie → ajouter un objet dans CONFIG.categories
+     - Changer la vidéo d'intro → changer CONFIG.introVideo
+============================================================ */
+const CONFIG = {
+
+  // Vidéo d'intro dans le cadre téléphone (YouTube ou Vimeo)
+  introVideo: "https://youtube.com/shorts/09AEfdBOmsw?feature=share",
+
+  // Catégories — chaque id doit correspondre à la "category" des vidéos
+  categories: [
+    { id: "all",       emoji: "✦", label: { fr: "Tout",      en: "All",       vi: "Tất cả" } },
+    { id: "voyage",    emoji: "✈️", label: { fr: "Voyage",    en: "Travel",    vi: "Du lịch" } },
+    { id: "ecommerce", emoji: "🛍️", label: { fr: "E-commerce",en: "E-commerce",vi: "E-commerce" } },
+    { id: "education", emoji: "📚", label: { fr: "Éducation", en: "Education", vi: "Giáo dục" } },
+    { id: "couple",    emoji: "💫", label: { fr: "Couple",    en: "Couple",    vi: "Couple" } },
+    { id: "parfum",    emoji: "🌸", label: { fr: "Parfum",    en: "Fragrance", vi: "Nước hoa" } },
+    { id: "beaute",    emoji: "✨", label: { fr: "Beauté",     en: "Beauty",     vi: "Làm đẹp" } },
+    { id: "tech",      emoji: "📱", label: { fr: "Tech & App",en: "Tech & App",vi: "Công nghệ" } },
+    { id: "food",      emoji: "🍔", label: { fr: "Nourriture",en: "Food", vi: "đồ ăn" } },
+  ],
+
+  // Vidéos — coller l'URL YouTube ou Vimeo et choisir une category parmi les ids ci-dessus
+  videos: [
+    { title: "Kanal 3",      brand: "Shopify",   category: "tech",   url: "https://youtube.com/shorts/UmM4mbTE9mw?feature=share" },
+    { title: "Coeur Blanc",  brand: "Fragranza", category: "beaute", url: "https://youtube.com/shorts/AVLC0Y1JV5k?feature=share" },
+    { title: "Avoir des abonnés", brand: "Like a film Studio", category: "tech", url: "https://youtube.com/shorts/-jYhtBl4EfQ?feature=share" },
+    { title: "Granola",      brand: "Granola",     category: "food",    url: "https://youtube.com/shorts/LAJ2xLfim2U?feature=share" },
+    { title: "Brainrot 1",      brand: "Brainrot",    category: "tech", url: "https://youtube.com/shorts/dqFW0m2GDqY?feature=share" },
+    { title: "Studying abroad",   brand: "Home ♥️",   category: "voyage", url: "https://youtu.be/aYXIRPqtLWo" },
+    { title: "Ma mère est prof",   brand: "Wilgo",   category: "education", url: "https://youtube.com/shorts/S4Tduhrx4xA?feature=share" },
+    { title: "Unboxing Air fryer",   brand: "Hypediscount",   category: "ecommerce", url: "https://youtube.com/shorts/aJJR2ciAAuI?feature=share" },
+    { title: "Shower head Elua",          brand: "Elua",       category: "couple",    url: "https://youtube.com/shorts/8tc4hrqBxfY?feature=share" },
+    { title: "Better open rate",       brand: "Kanal",       category: "ecommerce",    url: "https://youtube.com/shorts/kwTRmIwSX8M?feature=share" },
+    { title: "Kanal",       brand: "Kanal",       category: "ecommerce",    url: "https://youtube.com/shorts/9KC5PhDXhfw?feature=share" },
+    { title: "Kanal",       brand: "Kanal",       category: "ecommerce",    url: "https://youtube.com/shorts/K8fFIaivKsc?feature=share" },
+    { title: "Kanal",       brand: "Kanal",       category: "ecommerce",    url: "https://youtube.com/shorts/88vO8S3UsoY?feature=share" },
+    { title: "Colorado Provencal",   brand: "Petit Futé",     category: "voyage",      url: "https://youtube.com/shorts/_-ST51Pc7Y8?feature=share" },
+    { title: "Les 2008",   brand: "Wilgo",     category: "education",      url: "https://youtube.com/shorts/4LMwVlg4MDw?feature=share" },
+    { title: "Lucis Life",  brand: "Lucis Life",    category: "tech",    url: "https://youtube.com/shorts/59LiR9jiDpg?feature=share" },
+    { title: "Sortie au Montsec",       brand: "Like a film Studio",       category: "voyage", url: "https://youtu.be/2mhaPMNNpVs" },
+    { title: "Skycop",   brand: "Skycop",      category: "voyage", url: "https://youtube.com/shorts/ygcri2VI0ek?feature=share" },
+    { title: "Brainrot studies",      brand: "Brainrot",       category: "tech",    url: "https://youtube.com/shorts/LSJ_7xY00K4?feature=share" },
+    { title: "Esaip formations",      brand: "Esaip school",    category: "education",    url: "https://youtube.com/shorts/m1wMVnug6GU?feature=share" },
+    { title: "Esaip formations",      brand: "Esaip school",    category: "education",    url: "https://youtube.com/shorts/c2thUMFjBLg?feature=share" },
+    { title: "Green screen",      brand: "Wilgo",    category: "education",    url: "https://youtube.com/shorts/m088h6n4BdE?feature=share" },
+  ],
+
+  // Marques affichées dans le bandeau défilant
+  brands: [
+    "Granola", "Petit Futé", "Kanal", "Skycop", "Brainrot",
+    "Esaip", "Elua", "Lucis Life", "Wilgo", "Nickel",
+    "Bombers originals", "Hypediscount", "Fraganza"
+  ],
+};
+
+/* ============================================================
+   I18N — Dictionnaire trilingue
+============================================================ */
+const I18N = {
+  fr: {
+    "nav.work": "Réalisations",
+    "nav.brands": "Marques",
+    "nav.about": "À propos",
+    "nav.contact": "Contact",
+    "nav.cta": "Lancer un projet",
+    "hero.kicker": "Créateur UGC trilingue · FR · EN · VI",
+    "hero.title": "BRUT.\nVRAI.\nFAIT POUR DURER.",
+    "hero.manifeste": "« Je crée des vidéos comme on tient un journal — chaque image est un bout de ma vie. »",
+    "hero.cta1": "Voir les vidéos",
+    "hero.cta2": "Me contacter",
+    "manifeste.quote": "« Je filme le réel, pas le parfait. Du brut qui crée du lien — et qui convertit. »",
+    "manifeste.dash": "— Quan Tran, Like A Film Studio",
+    "work.eyebrow": "✦ Réalisations",
+    "work.title": "Le travail parle.",
+    "stats.lang": "Langues",
+    "stats.brands": "Marques",
+    "stats.cats": "Catégories",
+    "stats.auth": "Authentique",
+    "contact.eyebrow": "✦ Contact",
+    "contact.title": "Créons un truc qui sonne vrai.",
+    "contact.sub": "Marque, agence ou créateur — écrivons ensemble la prochaine histoire.",
+    "contact.btn": "tducquan08@gmail.com",
+    "footer.privacy": "Confidentialité",
+    "footer.a11y": "Accessibilité",
+  },
+  en: {
+    "nav.work": "Work",
+    "nav.brands": "Brands",
+    "nav.about": "About",
+    "nav.contact": "Contact",
+    "nav.cta": "Start a project",
+    "hero.kicker": "Trilingual UGC Creator · FR · EN · VI",
+    "hero.title": "RAW.\nREAL.\nBUILT TO LAST.",
+    "hero.manifeste": "\"I make videos like keeping a journal — every frame is a piece of my life.\"",
+    "hero.cta1": "Watch the work",
+    "hero.cta2": "Get in touch",
+    "manifeste.quote": "\"I film reality, not perfection. Raw content that connects — and converts.\"",
+    "manifeste.dash": "— Quan Tran, Like A Film Studio",
+    "work.eyebrow": "✦ Selected work",
+    "work.title": "The work speaks.",
+    "stats.lang": "Languages",
+    "stats.brands": "Brands",
+    "stats.cats": "Categories",
+    "stats.auth": "Authentic",
+    "contact.eyebrow": "✦ Contact",
+    "contact.title": "Let's make something real.",
+    "contact.sub": "Brand, agency or creator — let's write the next story together.",
+    "contact.btn": "tducquan08@gmail.com",
+    "footer.privacy": "Privacy",
+    "footer.a11y": "Accessibility",
+  },
+  vi: {
+    "nav.work": "Tác phẩm",
+    "nav.brands": "Thương hiệu",
+    "nav.about": "Về tôi",
+    "nav.contact": "Liên hệ",
+    "nav.cta": "Bắt đầu dự án",
+    "hero.kicker": "Nhà sáng tạo UGC 3 ngôn ngữ · FR · EN · VI",
+    "hero.title": "THẬT.\nCHÂN.\nĐỂ MÃI.",
+    "hero.manifeste": "« Tôi làm video như viết nhật ký — mỗi khung hình là một mảnh cuộc đời. »",
+    "hero.cta1": "Xem tác phẩm",
+    "hero.cta2": "Liên hệ ngay",
+    "manifeste.quote": "« Tôi quay thực tế, không quay hoàn hảo. Chân thật để kết nối — và chuyển đổi. »",
+    "manifeste.dash": "— Quan Tran, Like A Film Studio",
+    "work.eyebrow": "✦ Tác phẩm",
+    "work.title": "Tác phẩm tự nói.",
+    "stats.lang": "Ngôn ngữ",
+    "stats.brands": "Thương hiệu",
+    "stats.cats": "Danh mục",
+    "stats.auth": "Xác thực",
+    "contact.eyebrow": "✦ Liên hệ",
+    "contact.title": "Hãy cùng tạo điều gì đó thật.",
+    "contact.sub": "Thương hiệu, agency hay creator — hãy cùng viết câu chuyện tiếp theo.",
+    "contact.btn": "tducquan08@gmail.com",
+    "footer.privacy": "Quyền riêng tư",
+    "footer.a11y": "Khả năng tiếp cận",
+  },
+};
+
+/* ============================================================
+   UTILITAIRES
+============================================================ */
+function parseVideoUrl(url) {
+  if (!url) return null;
+  // YouTube watch
+  let m = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+  if (m) return { type: 'youtube', id: m[1] };
+  // YouTube short / youtu.be
+  m = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (m) return { type: 'youtube', id: m[1] };
+  // YouTube shorts
+  m = url.match(/shorts\/([a-zA-Z0-9_-]{11})/);
+  if (m) return { type: 'youtube', id: m[1] };
+  // Vimeo
+  m = url.match(/vimeo\.com\/(\d+)/);
+  if (m) return { type: 'vimeo', id: m[1] };
+  return null;
+}
+function getEmbedUrl(parsed, autoplay = false) {
+  if (!parsed) return '';
+
+  if (parsed.type === 'youtube') {
+    return `https://www.youtube.com/embed/${parsed.id}?autoplay=${autoplay ? 1 : 0}&rel=0&modestbranding=1&playsinline=1`;
+  }
+
+  if (parsed.type === 'vimeo') {
+    return `https://player.vimeo.com/video/${parsed.id}?autoplay=${autoplay ? 1 : 0}`;
+  }
+
+  return '';
+}
+function getThumbUrl(parsed) {
+  if (!parsed) return '';
+  if (parsed.type === 'youtube') return `https://i.ytimg.com/vi/${parsed.id}/hqdefault.jpg`;
+  return '';
+}
+function pad2(n) { return String(n).padStart(2, '0'); }
+
+/* ============================================================
+   LANGUE
+============================================================ */
+let currentLang = 'fr';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === lang.toUpperCase());
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = I18N[lang]?.[key];
+    if (!val) return;
+    if (key === 'hero.title') {
+      el.innerHTML = val.replace(/\n/g, '<br>');
+    } else {
+      el.textContent = val;
+    }
+  });
+  // Re-render tabs with translated labels
+  renderFilterTabs();
+  document.documentElement.lang = lang;
+}
+
+/* ============================================================
+   ÉTOILES
+============================================================ */
+function buildStars() {
+  const field = document.getElementById('starField');
+  for (let i = 0; i < 24; i++) {
+    const s = document.createElement('span');
+    s.className = 'star-dot';
+    s.textContent = '✦';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+    s.style.setProperty('--delay', (-Math.random() * 4) + 's');
+    s.style.fontSize = (7 + Math.random() * 8) + 'px';
+    field.appendChild(s);
+  }
+}
+
+/* ============================================================
+   MARQUEE
+============================================================ */
+function buildMarquee() {
+  const inner = document.getElementById('marqueeInner');
+  const items = [...CONFIG.brands, ...CONFIG.brands]; // double pour loop
+  inner.innerHTML = items.map(b => `<span class="marquee-item">${b}</span>`).join('');
+}
+
+/* ============================================================
+   HERO VIDEO
+============================================================ */
+function buildHeroVideo() {
+  const poster = document.getElementById('heroPoster');
+  const parsed = parseVideoUrl(CONFIG.introVideo);
+  const thumb = getThumbUrl(parsed);
+  if (thumb) {
+    poster.style.backgroundImage = `url(${thumb})`;
+    poster.style.backgroundSize = 'cover';
+    poster.style.backgroundPosition = 'center';
+  }
+  poster.addEventListener('click', () => {
+    const iframe = document.createElement('iframe');
+    iframe.src = getEmbedUrl(parsed, true);
+    iframe.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
+    iframe.allowFullscreen = true;
+    iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+    poster.replaceWith(iframe);
+  });
+  poster.addEventListener('keydown', e => { if (e.key === 'Enter') poster.click(); });
+}
+
+/* ============================================================
+   FILTRES & GRILLE VIDÉOS
+============================================================ */
+let activeFilter = 'all';
+
+function renderFilterTabs() {
+  const tabs = document.getElementById('filterTabs');
+  tabs.innerHTML = CONFIG.categories.map(cat => `
+    <button class="filter-tab${cat.id === activeFilter ? ' active' : ''}"
+      role="tab"
+      aria-selected="${cat.id === activeFilter}"
+      data-cat="${cat.id}"
+      onclick="setFilter('${cat.id}')">
+      ${cat.emoji} ${cat.label[currentLang] || cat.label.fr}
+    </button>`).join('');
+}
+
+function setFilter(catId) {
+  activeFilter = catId;
+  renderFilterTabs();
+  renderGrid();
+}
+
+function renderGrid() {
+  const grid = document.getElementById('videoGrid');
+  const filtered = activeFilter === 'all'
+    ? CONFIG.videos
+    : CONFIG.videos.filter(v => v.category === activeFilter);
+
+  grid.innerHTML = filtered.map((v, i) => {
+    const parsed = parseVideoUrl(v.url);
+    const thumb = getThumbUrl(parsed);
+    const cat = CONFIG.categories.find(c => c.id === v.category);
+    const catLabel = cat ? (cat.label[currentLang] || cat.label.fr) : v.category;
+    return `
+    <article class="video-card" role="listitem" tabindex="0"
+      aria-label="${v.title} — ${v.brand}"
+      data-url="${v.url}"
+      onclick="openModal('${v.url}')"
+      onkeydown="if(event.key==='Enter')openModal('${v.url}')">
+      ${thumb ? `<img class="video-thumb" src="${thumb}" alt="${v.title}" loading="lazy">` : ''}
+      <div class="video-play-icon" aria-hidden="true">▶</div>
+      <div class="video-overlay">
+        <span class="video-brand">${v.brand}</span>
+        <span class="video-title">${v.title}</span>
+        <span class="video-cat-pill">${cat?.emoji || ''} ${catLabel}</span>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+/* ============================================================
+   MODAL
+============================================================ */
+function openModal(url) {
+  const parsed = parseVideoUrl(url);
+  document.getElementById('modalIframe').src = getEmbedUrl(parsed, true);
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('modalIframe').src = '';
+  document.body.style.overflow = '';
+}
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+/* ============================================================
+   STATS dynamiques
+============================================================ */
+function buildStats() {
+  document.getElementById('statBrands').textContent = CONFIG.brands.length + '+';
+  document.getElementById('statCats').textContent = pad2(CONFIG.categories.length - 1); // -1 pour "All"
+}
+
+/* ============================================================
+   BURGER MENU MOBILE
+============================================================ */
+document.getElementById('burgerBtn').addEventListener('click', () => {
+  const menu = document.getElementById('mobileMenu');
+  const open = menu.classList.toggle('open');
+  document.getElementById('burgerBtn').setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   INIT
+============================================================ */
+buildStars();
+buildMarquee();
+buildHeroVideo();
+renderFilterTabs();
+renderGrid();
+buildStats();
+setLang('fr');
+</script>
+</body>
+</html>
+x
